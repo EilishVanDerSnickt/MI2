@@ -1,0 +1,75 @@
+<html>
+    <head>
+        <title>Opdracht 1 </title>
+    </head>
+    <body>
+        <h1>Opdracht 1</h1>
+        <script>
+            "use script";
+            
+            var getal1 = 5;
+            var getal2 = 2;
+            
+            function Optellen(){
+                return document.write("5 + 2 = " + (getal1 + getal2) + "<br>");
+            }
+            
+            function Aftrekken(){
+                return document.write("5 - 2 = " + (getal1 - getal2) + "<br>");
+            }
+            
+            function Vermenigvuldigen(){
+                return document.write("5 * 2 = " + (getal1 * getal2) + "<br>");
+            }
+            
+            function Delen(){
+                return document.write("5 / 2 = " + (getal1 / getal2) + "<br>");
+            }
+            
+            Optellen();
+            Aftrekken();
+            Vermenigvuldigen();
+            Delen();
+            
+            //opdracht 1 bis
+            var cijfer1;
+            var cijfer2;
+            
+            function Getal1(nummer1){
+                return nummer1 = cijfer1;
+            }
+            function Getal2(nummer2){
+                return nummer2 = cijfer2;
+            }
+            function Plus(){
+                return document.write(cijfer1 + cijfer2);
+            }
+             function Min(){
+                return console.log(cijfer1 - cijfer2);
+            }
+            function Maal(){
+                return console.log(cijfer1 * cijfer2);
+            }
+            function Gedeeld(){
+                return console.log(cijfer1 / cijfer2);
+            }
+            
+            Getal1();
+            Getal2();
+            Plus();
+            Min();
+            Maal();
+            Gedeeld();
+            
+            
+        </script>
+        
+        <h1>Opdracht 1 bis</h1>
+        <p>getal 1: </p><input id="getal_1">
+        <p>getal 2: </p><input id="getal_2">
+        <button type="button" id="optellen" onclick="">optellen</button>
+        <button type="button" id="aftrekken" onclick="">aftrekken</button>
+        <button type="button" id="delen" onclick="">delen</button>
+        <button type="button" id="vermenigvuldigen" onclick="">vermenigvuldigen</button>
+    </body>
+</html>

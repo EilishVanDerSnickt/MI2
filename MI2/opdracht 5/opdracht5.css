@@ -1,0 +1,14 @@
+.zwart, .wit{
+    height: 50px;
+    width: 50px;
+    border-color: black;
+    border-width: 1px;
+    border-style:groove;
+    float: left;
+}
+.zwart{
+    background-color: black;
+}
+.wit{
+    background-color: white;
+}

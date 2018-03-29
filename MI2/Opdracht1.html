@@ -6,24 +6,25 @@
         <h1>Opdracht 1</h1>
         <script>
             "use script";
+            /* jshint esnext: true */
             
             var getal1 = 5;
             var getal2 = 2;
             
-            function Optellen(){
-                return document.write("5 + 2 = " + (getal1 + getal2) + "<br>");
+            var Optellen = () => {
+                return document.write(`5 + 2 = ${getal1 + getal2} <br>`);
             }
             
-            function Aftrekken(){
-                return document.write("5 - 2 = " + (getal1 - getal2) + "<br>");
+            var Aftrekken = () => {
+                return document.write(`5 - 2 = ${getal1 - getal2} <br>`);
             }
             
-            function Vermenigvuldigen(){
-                return document.write("5 * 2 = " + (getal1 * getal2) + "<br>");
+            var Vermenigvuldigen = () => {
+                return document.write(`5 * 2 = ${getal1 * getal2} <br>`);
             }
             
-            function Delen(){
-                return document.write("5 / 2 = " + (getal1 / getal2) + "<br>");
+            var Delen = () => {
+                return document.write(`5 / 2 = ${getal1 / getal2} <br>`);
             }
             
             Optellen();
@@ -35,22 +36,22 @@
             var cijfer1;
             var cijfer2;
             
-            function Getal1(nummer1){
+            let Getal1 = (nummer1) => {
                 return nummer1 = cijfer1;
             }
-            function Getal2(nummer2){
+            let Getal2 = (nummer2) => {
                 return nummer2 = cijfer2;
             }
-            function Plus(){
+            var Plus = () => {
                 return document.write(cijfer1 + cijfer2);
             }
-             function Min(){
+             var Min = () => {
                 return console.log(cijfer1 - cijfer2);
             }
-            function Maal(){
+            var Maal = () => {
                 return console.log(cijfer1 * cijfer2);
             }
-            function Gedeeld(){
+            var Gedeeld = () => {
                 return console.log(cijfer1 / cijfer2);
             }
             

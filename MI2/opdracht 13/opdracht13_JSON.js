@@ -1,4 +1,5 @@
 "use strict";
+/* jshint esnext: true */
 
 function verwerkJSON(response) {
     var antwoord = "", i, adres;
@@ -7,12 +8,12 @@ function verwerkJSON(response) {
     {      
         adres = response.results[i];
         
-        antwoord += "<tr><td>" + adres.address_components[0].long_name + "<\/td>";
-        antwoord += "<td>" + adres.address_components[1].long_name + "<\/td>";
-        antwoord += "<td>" + adres.address_components[2].long_name + "<\/td>";
-        antwoord += "<td>" + adres.adderess_components[3].long_name + "<\/td>";
-        antwoord += "<td>" + adres.geometry.location.lat + "<\/td>";
-        antwoord += "<td>" + adres.geometry.location.lng + "<\/td><\/tr>";
+        antwoord + `<tr><td> ${adres.address_components[0].long_name}<\/td>`;
+        antwoord += `<td> ${adres.address_components[1].long_name} <\/td>`;
+        antwoord += `<td> ${adres.address_components[2].long_name} <\/td>`;
+        antwoord += `<td> ${adres.adderess_components[3].long_name} <\/td>`;
+        antwoord += `<td> ${adres.geometry.location.lat} <\/td>`;
+        antwoord += `<td> ${adres.geometry.location.lng} <\/td><\/tr>`;
     }
     
     $("#adres tbody").html(antwoord);
@@ -27,6 +28,9 @@ $(function () {
         success : verwerkJSON
     });
 });
+
+
+
 
 			
 	

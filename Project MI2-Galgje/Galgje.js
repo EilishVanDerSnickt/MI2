@@ -1,42 +1,82 @@
-"use strict";
+var randomWoordArray = ["programmeur", "computer", "javascript", "programmeertaal"];
+var randomWoord = randomWoordArray[Math.floor(Math.random() * randomWoordArray.length)];
 
-var antwoord;
+var s;
+var count = 0;
+var antwoordArray = [];
+var galgArray = [];
+var antwoord = document.getElementById("antwoordWoord").value;
 
-function RandomGenerator(antwoord){
-    var reactie;
-    var getal = Math.floor(Math.random() * 5);
-    
-    antwoord = reactie;
-    
-    switch (getal)
+ 
+
+function start()
+{
+    for (var i = 0; i < randomWoord.length; i++)
         {
-            case 0: 
-                reactie = "hallo";
-                break;
-            case 1: 
-                reactie = "hey";
-                break;
-            case 2: 
-                reactie = "hi";
-                break;
-            case 3: 
-                reactie = "cava";
-                break;
-            case 4: 
-                reactie = "goed";
-                break;
-    }
+            antwoordArray[i] = "_";
+        }
     
-    document.getElementById("hetTeRadenWoord").innerHTML = reactie;
-   
-    return reactie;
+    s = antwoordArray.join(" ");
+    document.getElementById("antwoord").innerHTML = s;
 }
 
-RandomGenerator(antwoord);
+function Letter()
+{
+    var letter = document.getElementById("antwoordLetter").value;
+    
+    if (letter.length > 0 && letter.length < 2)
+        {
+            for (var i = 0; i < randomWoord.length; i++)
+                {
+                    if (randomWoord[i] === letter)
+                        {
+                            antwoordArray[i] = letter;
+                        }
+                    else 
+                        {
+                           Galg();
+                        }
+                }
+            
+            count++;           
+            document.getElementById("counter").innerHTML = "Aantal fouten: " + count;
+            document.getElementById("antwoord").innerHTML = antwoordArray.join(" ");
+        }
+    
+    else
+        {
+            alert("Foute invoer je mag maar 1 letter ingeven.");
+        }
+    
+    
+    
+    if (count > 10)
+        {
+            document.getElementById("stat").innerHTML = "Come on, you should have guessed it by now";
+        }
+    
+}
 
-//document.getElementById("hetTeRadenWoord").innerHTML = antwoord;
+function Woord()
+{
+    if (antwoord = randomWoord)
+        {
+            alert("Proficiat je bent gewonnen.");
+        }
+    else
+        {
+            alert("Foute invoer");
+        }
+}
 
-
+function Galg()
+{   
+    if (count == 20)
+        {
+            alert("Je bent verloren!");
+        }
+}
+  
 
 
 

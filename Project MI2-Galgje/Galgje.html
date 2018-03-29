@@ -1,13 +1,20 @@
+<!DOCTYPE html>
 <html>
-    <head>
-         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="Galgje.css">
+	<head>
+		<meta charset="utf-8" />
+		<title>opdracht 11</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <title>Galgje</title>
-    </head>
-    <body>
-        <p id="hetTeRadenWoord"></p>
-        <script src="Galgje.js"></script>
-        <script src="Galgje_jquery.js"></script>
-    </body>
+	</head>
+	<body>
+        <h1>Galgje</h1>
+        <input type="text" id="antwoordLetter">
+        <input type="button" value="letter" onclick="Letter()">
+        <input type="text" id="antwoordWoord">
+        <input type="button" value="woord" onclick="Woord()">
+        <p id="antwoord"></p>
+        <p id="counter"></p>
+        <p id="stat"></p>
+        <script src="galgje.js"></script>
+	</body>
 </html>

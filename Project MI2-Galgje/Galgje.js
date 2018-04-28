@@ -30,6 +30,11 @@ function Start()
     document.getElementById("a8").style.visibility = "hidden";
     document.getElementById("a9").style.visibility = "hidden";
     document.getElementById("a10").style.visibility = "hidden";
+    count = 0;
+    aantal = 0;
+    document.getElementById("counter").innerHTML = "Aantal fouten: " + count;
+    document.getElementById("antwoordLetter").EMPTY;
+    document.getElementById("antwoordWoord").EMPTY;
 
     
     for (var i = 0; i < randomWoord.length; i++)
@@ -54,7 +59,9 @@ function Letter()
                     if (randomWoord[i] === letter && aantal === 0)
                         {
                             antwoordArray[i] = letter;
-                            count = 1;
+                            count ++;
+                            
+                            Galg();
                             
                         }
                     else if (aantal === 1)
@@ -94,21 +101,23 @@ function Woord()
     else
         {
             confirm("Foute invoer");
+            Start();
         }
 }
 
 function Galg()
 { 
-    if (aantal === 1)
+    if (count <= 1)
         {
             count++;
             TekenGalg();
             
         }
-    if (aantal === 20)
+    if (count === 20)
         {
             confirm("Je bent verloren!");
             count = 0;
+            Start();
         }
 }
 

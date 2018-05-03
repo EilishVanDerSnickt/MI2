@@ -1,25 +1,19 @@
 "use strict";
 /* jshint esnext: true*/
 
+// Hieronder staan de globale variabelen.
 var randomWoordArray = ["programmeur", "computer", "javascript", "programmeertaal"];
 var randomWoord = randomWoordArray[Math.floor(Math.random() * randomWoordArray.length)];
 
 var s;
-var count = 0;
+var aantalFouten = 0;
 var antwoordArray = [];
-var galgArray = ["#a1, #a2, #a3, #a4, #a5, #a6, #a7, #a8, #a9, #a10"];
-var antwoord;
-var letter;
-var aantal = 0;
+var antwoordIsJuist = false;
 
-count = aantal;
+// Deze methode wordt uitgevoerd wanneer het spel (her)start.
+var Start = () => {
 
-document.getElementById("a1").innerHTML = "#a1";
-
-Start(); 
-
-function Start()
-{
+    // Hier stellen we standaardwaarden van het spel in, het galgje word verborgen, velden leeggemaakt en waarden worden gereset.
     document.getElementById("a1").style.visibility = "hidden";
     document.getElementById("a2").style.visibility = "hidden";
     document.getElementById("a3").style.visibility = "hidden";
@@ -30,139 +24,114 @@ function Start()
     document.getElementById("a8").style.visibility = "hidden";
     document.getElementById("a9").style.visibility = "hidden";
     document.getElementById("a10").style.visibility = "hidden";
-    count = 0;
-    aantal = 0;
-    document.getElementById("counter").innerHTML = "Aantal fouten: " + count;
-    document.getElementById("antwoordLetter").EMPTY;
-    document.getElementById("antwoordWoord").EMPTY;
+    aantalFouten = 0;
+    document.getElementById("counter").innerHTML = "Aantal fouten: " + aantalFouten;
+    document.getElementById("antwoordLetter").value = "";
+    document.getElementById("antwoordWoord").value = "";
 
-    
-    for (var i = 0; i < randomWoord.length; i++)
-        {
-            antwoordArray[i] = "_";
-        }
-    
+    // Een for-lus om elke letter van het te raden woord te vervangen door "_".
+    for (let i = 0; i < randomWoord.length; i++) {
+        antwoordArray[i] = "_";
+    }
+
     s = antwoordArray.join(" ");
     document.getElementById("antwoord").innerHTML = s;
 }
 
-function Letter()
-{
-    var letter = document.getElementById("antwoordLetter").value;
+// We laten de "Start"-methode lopen bij het starten van het programma.
+Start();
+
+// Deze methode controleert of de ingegeven letter correct is en geeft hierop een gepaste feedback.
+var Letter = () => {
     
-    letter = letter;
-    
-    if (letter.length > 0 && letter.length < 2)
-        {
-            for (var i = 0; i < randomWoord.length; i++)
-                {
-                    if (randomWoord[i] === letter && aantal === 0)
-                        {
-                            antwoordArray[i] = letter;
-                            count ++;
-                            
-                            Galg();
-                            
-                        }
-                    else if (aantal === 1)
-                        {
-                            Galg();
-                          
-                        }
-                }
-            
-                    
-            document.getElementById("counter").innerHTML = "Aantal fouten: " + count;
-            /**document.getElementById("counter").innerHTML = "Aantal fouten: " + aantal;*/
-            document.getElementById("antwoord").innerHTML = antwoordArray.join(" ");
+    // Stelt de variabele letter gelijk aan wat er ingevuld wordt in het tekstvak "antwoordLetter".
+    let letter = document.getElementById("antwoordLetter").value;
+
+    // Controleert of er enkel 1 letter is ingegeven en geeft gepaste feedback.
+    // Een for-lus controleert op juiste letters en signaleert een goed antwoord via een boolean, deze bepaalt verder of er een fout is gemaakt.
+    if (letter.length == 1) {
+        for (let i = 0; i < randomWoord.length; i++) {
+            if (randomWoord[i] === letter) {
+                antwoordArray[i] = letter;
+                antwoordIsJuist = true;
+            }
         }
-    
-    else
-        {
-            confirm("Foute invoer je mag maar 1 letter ingeven.");
-        }
-    
-    
-    
-    if (count > 40)
-        {
-            document.getElementById("stat").innerHTML = "Come on, you should have guessed it by now";
-        }
-    
+
+        (antwoordIsJuist == true) ? (null) : (foutGemaakt());
+
+        document.getElementById("counter").innerHTML = "Aantal fouten: " + aantalFouten;
+        document.getElementById("antwoordLetter").value = "";
+        document.getElementById("antwoord").innerHTML = antwoordArray.join(" ");
+    } else {
+        document.getElementById("antwoordLetter").value = "";
+        confirm("Foute invoer je mag maar 1 letter ingeven.");
+    }
+
 }
 
-function Woord()
-{
-    if ((s = document.getElementById("antwoordWoord").value) === randomWoord)
-        {
-            confirm("Proficiat je bent gewonnen.");
-            Start();
-        }
-    else
-        {
+// Deze methode controleert of je het juiste woord hebt geraden, zo niet is het een fout.
+// Er word een controle gemaakt op een ingevuld veld, wanneer het leeg is word dit niet als fout gezien.
+var Woord = () => {
+
+    if ((s = document.getElementById("antwoordWoord").value) === randomWoord) {
+        Start();
+        confirm("Proficiat je bent gewonnen.");
+    } else {
+        (document.getElementById("antwoordWoord").value == "") ? (null) : (foutGemaakt());
+        document.getElementById("antwoordWoord").value = "";
+        setTimeout(function () {
             confirm("Foute invoer");
-            Start();
-        }
+        }, 500);
+    }
 }
 
-function Galg()
-{ 
-    if (count <= 1)
-        {
-            count++;
-            TekenGalg();
-            
-        }
-    if (count === 20)
-        {
-            confirm("Je bent verloren!");
-            count = 0;
-            Start();
-        }
+// Deze functie tekent de galg per fout die je maakt, ze is dan ook gekoppelt aan de methode "foutGemaakt".
+var TekenGalg = () => {
+
+    switch (aantalFouten) {
+        case 1:
+            document.getElementById("a1").style.visibility = "visible"
+            break;
+        case 2:
+            document.getElementById("a2").style.visibility = "visible"
+            break;
+        case 3:
+            document.getElementById("a3").style.visibility = "visible"
+            break;
+        case 4:
+            document.getElementById("a4").style.visibility = "visible"
+            break;
+        case 5:
+            document.getElementById("a5").style.visibility = "visible"
+            break;
+        case 6:
+            document.getElementById("a6").style.visibility = "visible"
+            break;
+        case 7:
+            document.getElementById("a7").style.visibility = "visible"
+            break;
+        case 8:
+            document.getElementById("a8").style.visibility = "visible"
+            break;
+        case 9:
+            document.getElementById("a9").style.visibility = "visible"
+            break;
+        case 10:
+            document.getElementById("a10").style.visibility = "visible"
+            setTimeout(function () {
+                confirm("Je bent verloren!");
+                Start();
+            }, 500);
+            break;
+        default:
+            document.getElementById("galg").style.visibility = "hidden"
+            break;
+    }
 }
 
-function TekenGalg()
-{
-    switch (count)
-        {
-            case 1:
-                document.getElementById("a1").style.visibility = "visible"
-                break;
-            case 2:
-                document.getElementById("a1").style.visibility = "visible"
-                break;
-            case 3:
-                document.getElementById("a1").style.visibility = "visible"
-                break;
-            case 4:
-                document.getElementById("a1").style.visibility = "visible"
-                break;
-            case 5:
-                document.getElementById("a1").style.visibility = "visible"
-                break;
-            case 6:
-                document.getElementById("a1").style.visibility = "visible"
-                break;
-            case 7:
-                document.getElementById("a1").style.visibility = "visible"
-                break;
-            case 8:
-                document.getElementById("a1").style.visibility = "visible"
-                break;
-            case 9:
-                document.getElementById("a1").style.visibility = "visible"
-                break;
-            case 10:
-                document.getElementById("a1").style.visibility = "visible"
-                break;
-            default:
-                document.getElementById("galg").style.visibility = "hidden"
-                break;
-        }
+// Deze methode vermeerdert het aantal fouten en refresht het bijhorende label.
+var foutGemaakt = () => {
+    aantalFouten++;
+    document.getElementById("counter").innerHTML = "Aantal fouten: " + aantalFouten;
+    TekenGalg();
 }
-
-
-  
-
-
-

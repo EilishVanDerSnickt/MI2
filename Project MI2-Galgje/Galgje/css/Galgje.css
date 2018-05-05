@@ -1,0 +1,105 @@
+body{
+    height: 100%;
+    width: 100%;
+}
+#a1{
+    background-color: black;
+    height: 5px;
+    width: 300px;
+    margin-left: 49.6%;
+    margin-top: 26%; 
+}
+
+#a2{
+    background-color: black;
+    height: 500px;
+    width: 5px;
+    margin-right: 34.6%;
+    float: right;
+}
+
+#a3{
+    background-color: black;
+    height: 5px;
+    width: 300px;
+    margin-left: 49.6%;
+    margin-top: 10%;
+}
+
+
+#a4{
+    background-color: black;
+    height: 5px;
+    width: 50px;
+    margin-left: 55%;
+    transform: rotate(90deg);
+    float: left;
+    margin-top: 1%;
+    
+}
+
+#a5{
+    background-color: black;
+    height: 50px;
+    width: 50px;
+    margin-left: -2.5%;
+    margin-top: 1.5%;
+    float: left;
+    border-radius: 50%;
+    
+}
+
+#a6{
+    background-color: black;
+    height: 150px;
+    width: 5px;
+    margin-left: -1.5%;
+    margin-top: 3%;
+    float: left;
+    
+}
+
+#a7{
+    background-color: black;
+    height: 100px;
+    width: 5px;
+    margin-left: -2.5%;
+    margin-top: 5%;
+    float: left;
+    transform: rotate(20deg);
+    
+}
+
+#a8{
+    background-color: black;
+    height: 100px;
+    width: 5px;
+    margin-left: -0.5%;
+    margin-top: 5%;
+    float: left;
+    transform: rotate(160deg);
+    
+}
+
+#a9{
+    background-color: black;
+    height: 120px;
+    width: 5px;
+    margin-left: -2.6%;
+    margin-top: 10.5%;
+    float: left;
+    transform: rotate(20deg);
+    
+}
+
+#a10{
+    background-color: black;
+    height: 120px;
+    width: 5px; 
+    margin-left: -0.4%;
+    margin-top: 10.5%;
+    float: left;
+    transform: rotate(160deg);
+    
+}
+

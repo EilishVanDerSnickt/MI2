@@ -13,17 +13,19 @@
     </div>
     <div class="page-content">
       <div class="block">
-        <p>Framework7 comes with ready to use Login Screen layout. It could be used inside of page or inside of popup (Embedded) or as a standalone overlay:</p>
-      </div>
-      <div class="list links-list">
-        <ul>
-          <li>
-            <a href="/login-screen-page/">As Separate Page</a>
-          </li>
-        </ul>
-      </div>
-      <div class="block">
-        <a href="#" class="button button-raised button-big button-fill login-screen-open" data-login-screen=".login-screen">As Overlay</a>
+        <a href="#" class="button button-raised button-big button-fill login-screen-open" data-login-screen=".login-screen">Registreer je vooraleer te spelen</a>
+           <h1>Galgje</h1>
+        <input type="text" id="antwoordLetter">
+        <input type="button" id="knopLetter" value="letter" onclick="Letter()">
+        <input type="text" id="antwoordWoord">
+        <input type="button" id="knopWoord" value="woord" onclick="Woord()">
+        <p id="antwoord"></p>
+        <p id="counter"></p>
+        <p id="stat"></p>
+        <br>
+        <div id="galg">
+            <div id="a3"></div><div id="a4"></div><span id="a5"></span><div id="a6"></div><div id="a7"></div><div id="a8"></div><div id="a9"></div><div id="a10"></div><div id="a2"></div><div id="a1"></div>
+        </div>
       </div>
     </div>
     <div class="login-screen">
@@ -65,6 +67,9 @@
     </div>
   </div>
 </template>
+<script src="js/Galgje.js"></script>
+<script src="js/Galgje_Jquery.js"></script>
+
 <script>
   return {
     methods: {

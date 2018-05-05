@@ -8,6 +8,7 @@ var randomWoord = randomWoordArray[Math.floor(Math.random() * randomWoordArray.l
 var s;
 var aantalFouten = 0;
 var antwoordArray = [];
+var alIngevoerdeLetters = [];
 var antwoordIsJuist = false;
 
 // Deze methode wordt uitgevoerd wanneer het spel (her)start.
@@ -46,6 +47,8 @@ var Letter = () => {
     
     // Stelt de variabele letter gelijk aan wat er ingevuld wordt in het tekstvak "antwoordLetter".
     let letter = document.getElementById("antwoordLetter").value;
+    
+    antwoordIsJuist = false;
 
     // Controleert of er enkel 1 letter is ingegeven en geeft gepaste feedback.
     // Een for-lus controleert op juiste letters en signaleert een goed antwoord via een boolean, deze bepaalt verder of er een fout is gemaakt.
@@ -56,6 +59,14 @@ var Letter = () => {
                 antwoordIsJuist = true;
             }
         }
+        
+        for (let i = 0; i < alIngevoerdeLetters.length; i++) {
+            if (alIngevoerdeLetters[i] === letter) {
+                antwoordIsJuist = false;
+            }
+        }
+        
+        alIngevoerdeLetters.push(letter);
 
         (antwoordIsJuist == true) ? (null) : (foutGemaakt());
 

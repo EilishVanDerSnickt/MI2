@@ -15,6 +15,7 @@ var antwoordIsJuist = false;
 var Start = () => {
 
     // Hier stellen we standaardwaarden van het spel in, het galgje word verborgen, velden leeggemaakt en waarden worden gereset.
+    /**
     document.getElementById("a1").style.visibility = "hidden";
     document.getElementById("a2").style.visibility = "hidden";
     document.getElementById("a3").style.visibility = "hidden";
@@ -25,6 +26,7 @@ var Start = () => {
     document.getElementById("a8").style.visibility = "hidden";
     document.getElementById("a9").style.visibility = "hidden";
     document.getElementById("a10").style.visibility = "hidden";
+    */
     aantalFouten = 0;
     document.getElementById("counter").innerHTML = "Aantal fouten: " + aantalFouten;
     document.getElementById("antwoordLetter").value = "";

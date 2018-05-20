@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Galgje</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"> </script>
+        <link rel="stylesheet" href="Galgje.css" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Modern+Antiqua" rel="stylesheet">
+	</head>
+	<body>
+        <h1>Galgje</h1>
+        <div class="container">
+            <button class="loginvenster">Registreer je vooraleer je begint met spelen</button>
+            <div class="login"> 
+                <h1 class="registreren">registreer voor het spelen</h1>
+                    <p class="gebruikersnaam">Geef een gebruikersnaam in: <br>
+                    <input id="gebruikersnaam" type="text" placeholder="Gebruiker_1" required>
+                    </p>
+                    <p class="wachtwoord">Geef je wachtwoord in: <br>
+                    <input id="wachtwoord" type="password" placeholder="Wachtwoord" required>
+                    </p>
+                    <button id="registreer" onclick="Registreer();">Registreer</button>
+                    <div id="uitleg"></div>
+            </div>
+        </div>
+        <br>
+        <input type="text" id="antwoordLetter" autofocus maxlength="1">
+        <input type="button" id="knopLetter" value="letter" onclick="Letter()">
+        <p id="antwoord"></p>
+        <input type="text" id="antwoordWoord">
+        <input type="button" id="knopWoord" value="woord" onclick="Woord()">
+        
+        <p id="counter"></p>
+        <div id="galg">
+            <div id="a3"></div><div id="a4"></div><span id="a5"></span><div id="a6"></div><div id="a7"></div><div id="a8"></div><div id="a9"></div><div id="a10"></div><div id="a2"></div><div id="a1"></div>
+        </div>
+        <div class="overlap">
+        
+        </div>
+        <script src="Register_Galgje.js"></script>
+        <script type="text/javascript" src="Galgje.js"></script>
+        <script src="Galgje_Jquery.js"></script>
+        
+	</body>
+</html>
